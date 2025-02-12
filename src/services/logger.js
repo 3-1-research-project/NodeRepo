@@ -1,20 +1,22 @@
 const winston = require('winston')
 const { createLogger, format } = winston
-const FluentTransport = require('fluent-logger').support.winstonTransport()
+//const FluentTransport = require('fluent-logger').support.winstonTransport()
 
 // Create a Winston logger
 const logger = createLogger({
   format: format.combine(
     format.timestamp(),
-    format.json()
+    format.simple(),
+    //format.json()
   ),
   transports: [
-    new FluentTransport(process.env.API ? 'api.access' : 'frontend.access', {
-      host: 'fluentd',
-      port: 24224,
-      timeout: 3.0,
-      reconnectInterval: 600000 // 10 minutes
-    })
+    // new FluentTransport(process.env.API ? 'api.access' : 'frontend.access', {
+    //   host: 'fluentd',
+    //   port: 24224,
+    //   timeout: 3.0,
+    //   reconnectInterval: 600000 // 10 minutes
+    // })
+    new winston.transports.Console()
   ]
 })
 // Create a Winston logger

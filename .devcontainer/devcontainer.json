@@ -1,0 +1,11 @@
+{
+	"name": "Node minitwit",
+    "dockerComposeFile": [
+        "./compose.yaml"
+    ],
+	"service": "minitwit",
+    "workspaceFolder": "/workspaces/",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {}
+	}
+}
